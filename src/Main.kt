@@ -1,30 +1,29 @@
 fun main() {
-    println("===Задача 1===")
-    //Создаем массив invalidEmails, содержащий 3-4 заведомо невалидных email-адреса
-    val invalidEmails: Array<String> = arrayOf("безсобаки", "@без-логина", "с-точкой-в-начале.@mail.ru")
-    println("Создан массив с ${invalidEmails.size} элементами")
+    println("Задача 1")
+    //функция которая возвращает элемент $searchld" для search>0
+    fun simulateElementSearch(searchId: Int): String? {
+        return if (searchId > 0) "searchld $searchId больше 0 " else null
+    }
 
-    println("\n===Задача 2===")
-    //Напишем код, который берет первый email из этого списка и "отправляет" его в систему.
-    val sendEmailsInSystem = invalidEmails[0]
-    println("Пользователь вводит email: '$sendEmailsInSystem'")
+    println("\nЗадача 2")
+    //передаем в качестве аргумента 2 и если true исп-я Elvis operator выводим текст функции
+    val element1: String? = simulateElementSearch(2) ?: "Элемент не найден"
+    println("Результат поиска (элемент есть): '$element1'")
+    //если false то выводим текст по умолчанию
+    val element2: String? = simulateElementSearch(-5) ?: "Элемент не найден"
+    println("Результат поиска (элемента нет): '$element2'")
 
-    //симуляция ответа системы, объявляем переменную errorMessage и присваиваем ей значение "Неверный формат email"
-    val errorMessage = "Неверный формат email"
-    println("Ответ системы: $errorMessage")
-
-    println("\n===Задача 3===")
-    //Используя строковые шаблоны и методы, выводим на экран:
-    //какой email был введен
-    println("Был введен email: '$sendEmailsInSystem'")
-
-    //какую ошибку вернула система
-    println("Система вернула ошибку: '$errorMessage'")
-
-    //длина введенного email
-    println("Длина введенного email была: ${sendEmailsInSystem.length} символов")
-
-    //проверяем содержит ли текст ошибки слово "формат" с выводом true/false
-    println("Содержит ли текст ошибки слово 'формат'? ${errorMessage.contains("формат")}")
-
+    println("\nЗадача 3")
+    //объявляем массив с двумя элементами
+    val serverResponse = arrayOf("error", 404)
+    //где проверяем является ли второй элемент массива числом
+    if (serverResponse[1] is Int) {
+        //если число выводим следуюий ответ
+        println("Код ошибки: '${serverResponse[1]}'")
+    } else {
+        //если не число выводим следующий ответ
+        serverResponse[1] as? String
+        println("Неизвестный код ошибки")
+    }
 }
+
