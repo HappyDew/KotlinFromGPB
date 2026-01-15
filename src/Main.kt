@@ -1,8 +1,8 @@
 fun main() {
     println("===Задача 1===")
     //Создаем массив invalidEmails, содержащий 3-4 заведомо невалидных email-адреса
-    val invalidEmails: List<String> = listOf("безсобаки", "@без-логина", "с-точкой-в-начале.@mail.ru")
-    println(invalidEmails)
+    val invalidEmails: Array<String> = arrayOf("безсобаки", "@без-логина", "с-точкой-в-начале.@mail.ru")
+    println("Создан массив с ${invalidEmails.size} элементами")
 
     println("\n===Задача 2===")
     //Напишем код, который берет первый email из этого списка и "отправляет" его в систему.
