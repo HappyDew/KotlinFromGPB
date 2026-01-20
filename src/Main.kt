@@ -24,10 +24,8 @@ fun main() {
     } else {
         //если не число выводим следующий ответ
         // Если в последнем выводе в консоль не выводишь строковое значение  для serverResponse[1], то и смыслка безопасного каста к String нет, предлагаю сохранить значение каста в константе и вывести в последнем операторе
-        // val unknownResponse = serverResponse[1] as? String
-        // println("Неизвестный код ошибки: $unknownResponse")
-        serverResponse[1] as? String
-        println("Неизвестный код ошибки")
+        val unknownResponse = serverResponse[1] as? String
+        println("Неизвестный код ошибки: $unknownResponse")
     }
 }
 
