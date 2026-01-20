@@ -2,6 +2,7 @@ fun main() {
     println("Задача 1")
     //функция которая возвращает элемент $searchld" для search>0
     fun simulateElementSearch(searchId: Int): String? {
+        //Чуть текстовка другаю в задании
         return if (searchId > 0) "searchld $searchId больше 0 " else null
     }
 
@@ -22,8 +23,11 @@ fun main() {
         println("Код ошибки: '${serverResponse[1]}'")
     } else {
         //если не число выводим следующий ответ
-        val unknownResponse = serverResponse[1] as? String
-        println("Неизвестный код ошибки: $unknownResponse")
+        // Если в последнем выводе в консоль не выводишь строковое значение  для serverResponse[1], то и смыслка безопасного каста к String нет, предлагаю сохранить значение каста в константе и вывести в последнем операторе
+        // val unknownResponse = serverResponse[1] as? String
+        // println("Неизвестный код ошибки: $unknownResponse")
+        serverResponse[1] as? String
+        println("Неизвестный код ошибки")
     }
 }
 
