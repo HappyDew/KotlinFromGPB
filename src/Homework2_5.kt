@@ -11,6 +11,7 @@ fun main() {
 
     println("\nЗадача 2")
     val isValidPhone = { phoneNumber: String ->
+        //Проверка здесь неверная, ты проверяешь что начинается с +7, длина всей строки 12, и что в строке есть хотя бы одна цифра
         phoneNumber.startsWith("+7") && phoneNumber.length <= 12 && phoneNumber.any {it.isDigit()}
     }
     val inputPhoneNumber = "+79249998877"
