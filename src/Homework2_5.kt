@@ -7,20 +7,29 @@ fun main() {
     //объявляем переменную с неким числом
     val positiveNumber = 2
     //тут проверяем условие, если positiveNumber в isPositive = true то один иначе другой
-    println("$positiveNumber - ${if(isPositive(positiveNumber)) "положительное" else "отрицательное"}")
+    println("$positiveNumber - ${if (isPositive(positiveNumber)) "положительное" else "отрицательное"}")
 
     println("\nЗадача 2")
+    //в переменной объявляем лямбду с типом String
     val isValidPhone = { phoneNumber: String ->
-        //Проверка здесь неверная, ты проверяешь что начинается с +7, длина всей строки 12, и что в строке есть хотя бы одна цифра
-        phoneNumber.startsWith("+7") && phoneNumber.length <= 12 && phoneNumber.any {it.isDigit()}
+        //тут проверяем что начинается с +7, потом что кол-во цифр = 11, а потом отбрасываем 2 первых символа и в остатке проверяем что они цифры
+        phoneNumber.startsWith("+7") && phoneNumber.count { it.isDigit() } == 11 && phoneNumber.drop(2)
+            .all { it.isDigit() }
+
     }
+    //объявляем переменную с неким номером
     val inputPhoneNumber = "+79249998877"
+    //проверяем условие что если inputPhoneNumber в isValidPhone = true, то одик иначе другой
     println("$inputPhoneNumber - ${if (isValidPhone(inputPhoneNumber)) "Валидный номер" else "Не валидный номер"}")
 
     println("\nЗадача 3")
+    //объявили лямбду без параметров
     val logTestStart = {
+        //объявляем переменую для вывода времени
         val currentTime = java.time.LocalTime.now()
+        //печатаем результат
         println("Тест 1 запущен в $currentTime")
     }
+    //вызываем лямбду без параметров
     logTestStart()
 }
