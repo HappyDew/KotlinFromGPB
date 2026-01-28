@@ -36,7 +36,8 @@ fun main() {
     //печатаем результат
     println("Результат сортировки имен по длине: $usersSortedByNameLenght")
 
-    /*println("\nЗадача 3")
+    println("\nЗадача 3")
+    //ответ от API
     val apiResponse = mapOf(
         "data" to listOf(
             mapOf("id" to 1, "status" to "active"),
@@ -45,8 +46,14 @@ fun main() {
         ),
         "total" to 3
     )
-
-    val second = apiResponse [1]*/
+    //принудительное приведение типов из Any в List (небезопасно), где фильтруем уже активные статусы
+    val activeUsers = (apiResponse["data"] as List<Map<String,Any>>).filter  {it["status"] == "active"}
+    //печатаем результат
+    println("Записи активных пользователей: $activeUsers")
+    //принудительное приведение типов из Any в List (небезопасно), где считаем кол-во активных статусов
+    val countUsers = (apiResponse["data"] as List<Map<String,Any>>).count { it["status"] == "active" }
+    //печатаем результат
+    println("Количество активных записей: $countUsers")
 
 
 }
