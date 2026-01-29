@@ -23,13 +23,13 @@ fun main() {
     val users = listOf("alice", "bob", "charlie", "david", "eve")
     //переменная где коллекцию преобразуем в верхний регистр
     //  Можно и так, но вообще такие дейстия можно делать короче, так одна строчка заменяет 4, да их нет хнанения промежуточных данных в памяти
-    // users.foreach { println("User: ${it.uppercase()}")}
-    val upperCaseUsers = users.map { it.uppercase() }
+    users.forEach { println("User: ${it.uppercase()}")}
+    /*val upperCaseUsers = users.map { it.uppercase() }
     //для каждого элемента делаем перебор
     for (upperCaseUser in upperCaseUsers) {
         //если условие true печатаем результат
         println("User $upperCaseUser")
-    }
+    }*/
 
     //переменная где ищем первое имя длиннее 4 символов
     val longName = users.find { it.length > 4 }
