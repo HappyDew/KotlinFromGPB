@@ -22,6 +22,7 @@ fun main() {
     //все имена в коллекции
     val users = listOf("alice", "bob", "charlie", "david", "eve")
     //переменная где коллекцию преобразуем в верхний регистр
+    //По заданию каждое имя должно быть преобразовано к формату User: ALICE
     val upperCaseUsers = users.map { it.uppercase() }
     //печатаем результат
     println("Users: $upperCaseUsers")
@@ -32,6 +33,7 @@ fun main() {
     println("Первое имя длиннее 4 символов: $longName")
 
     //переменная где сортируем имена по длине
+    //Там не про сортировку в задании, а про группировку
     val usersSortedByNameLenght = users.sortedBy { it.length }
     //печатаем результат
     println("Результат сортировки имен по длине: $usersSortedByNameLenght")
@@ -47,6 +49,12 @@ fun main() {
         "total" to 3
     )
     //принудительное приведение типов из Any в List (небезопасно), где фильтруем уже активные статусы
+    //Если тебе несколько раз приходится выполнять оно и тоже дейстие, сохраняй результат в переменную, а не копипастой занимайся
+    //Так правильней:
+    //val activeUsers = (apiResponse["data"] as List<Map<String,Any>>).filter  {it["status"] == "active"}
+    //println("Записи активных пользователей: $activeUsers")
+    //println("Количество активных записей: $activeUsers.count()")
+    
     val activeUsers = (apiResponse["data"] as List<Map<String,Any>>).filter  {it["status"] == "active"}
     //печатаем результат
     println("Записи активных пользователей: $activeUsers")
