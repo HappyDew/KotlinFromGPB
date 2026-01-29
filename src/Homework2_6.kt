@@ -22,6 +22,8 @@ fun main() {
     //все имена в коллекции
     val users = listOf("alice", "bob", "charlie", "david", "eve")
     //переменная где коллекцию преобразуем в верхний регистр
+    //  Можно и так, но вообще такие дейстия можно делать короче, так одна строчка заменяет 4, да их нет хнанения промежуточных данных в памяти
+    // users.foreach { println("User: ${it.uppercase()}")}
     val upperCaseUsers = users.map { it.uppercase() }
     //для каждого элемента делаем перебор
     for (upperCaseUser in upperCaseUsers) {
