@@ -22,10 +22,12 @@ fun main() {
     //все имена в коллекции
     val users = listOf("alice", "bob", "charlie", "david", "eve")
     //переменная где коллекцию преобразуем в верхний регистр
-    //По заданию каждое имя должно быть преобразовано к формату User: ALICE
     val upperCaseUsers = users.map { it.uppercase() }
-    //печатаем результат
-    println("Users: $upperCaseUsers")
+    //для каждого элемента делаем перебор
+    for (upperCaseUser in upperCaseUsers) {
+        //если условие true печатаем результат
+        println("User $upperCaseUser")
+    }
 
     //переменная где ищем первое имя длиннее 4 символов
     val longName = users.find { it.length > 4 }
@@ -34,9 +36,9 @@ fun main() {
 
     //переменная где сортируем имена по длине
     //Там не про сортировку в задании, а про группировку
-    val usersSortedByNameLenght = users.sortedBy { it.length }
+    val usersSortedByNameLenght = users.groupBy { it.length }
     //печатаем результат
-    println("Результат сортировки имен по длине: $usersSortedByNameLenght")
+    println("Результат группировки имен по длине: $usersSortedByNameLenght")
 
     println("\nЗадача 3")
     //ответ от API
@@ -54,14 +56,9 @@ fun main() {
     //val activeUsers = (apiResponse["data"] as List<Map<String,Any>>).filter  {it["status"] == "active"}
     //println("Записи активных пользователей: $activeUsers")
     //println("Количество активных записей: $activeUsers.count()")
-    
-    val activeUsers = (apiResponse["data"] as List<Map<String,Any>>).filter  {it["status"] == "active"}
-    //печатаем результат
+
+    val activeUsers = (apiResponse["data"] as List<Map<String, Any>>).filter { it["status"] == "active" }
+    //печатаем результаты
     println("Записи активных пользователей: $activeUsers")
-    //принудительное приведение типов из Any в List (небезопасно), где считаем кол-во активных статусов
-    val countUsers = (apiResponse["data"] as List<Map<String,Any>>).count { it["status"] == "active" }
-    //печатаем результат
-    println("Количество активных записей: $countUsers")
-
-
+    println("Количество активных записей: ${activeUsers.count()}")
 }
