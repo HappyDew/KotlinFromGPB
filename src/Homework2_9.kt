@@ -7,7 +7,7 @@ fun main() {
     )
     //объявляем объект класса куда передаем след аргументы
     val testUser = OriginalUser("Вася", "test@gmail.com", 123, "18 апреля")
-    testUser.also { testUser -> println("Логируем создание пользователя $testUser") }
+    testUser.also { println("Логируем создание пользователя $testUser") }
     //переопределяем свойства объекта
     testUser.apply {
         this.name = "Толя"
@@ -24,7 +24,7 @@ fun main() {
     data class TestOrder(var status: String, var comments: String, var price: Double)
     //объявляем объект класса с аргументами
     val newOrder = TestOrder("Actual", "very good", 123.45)
-    newOrder.also { newOrder -> println("Логируем отправку запроса $newOrder") }
+    newOrder.also { println("Логируем отправку запроса $newOrder") }
     //показываем текущее состояние
     println("Текущий заказ: $newOrder")
     //новая переменная где переназначаем свойства и возвращаем последнее значение
@@ -43,7 +43,7 @@ fun main() {
     data class ResponceApi(var code: Int, var status: String?)
     //объявляем объект класса с аргументами
     val newResponce = ResponceApi(200, null)
-    newResponce.also { newResponce -> println("Логируем отправку запроса $newResponce") }
+    newResponce.also { println("Логируем отправку запроса $newResponce") }
     //в функции проверяем что status != null, и если не null то печатаем результат
     newResponce.status?.let {
         println("Получены данные: $newResponce")
